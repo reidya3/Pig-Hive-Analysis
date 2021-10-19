@@ -26,7 +26,7 @@ Movie Lens is a web-based movie recommendation service developed by researchers 
 In  this  repository,  we  seek  to  use  Pig  and  Hive  to  clean  and  analyse  the  described  datasets.
 
 ## HDFS
-Although, Pig has the option to run using a local host and file system, we load and process the data in the Hadoop File System (HDFS). The Pig relations and Hive Tables are provided in the [data](data) folder merely for verification purposes. 
+Although, Pig has the option to run using a local host and file system, we load and process the data in the Hadoop File System (HDFS). The Pig relations and Hive tables are provided in the [data](data) folder merely for verification purposes. 
 
 ## Report 
 A report detailing this investigation can be accessed [here](report.pdf). Although the report is above the maximum number of pages allocated, this is due to the large amount of Pig and Hive output images as well as latex's formatting requirements. 
@@ -38,11 +38,11 @@ A report detailing this investigation can be accessed [here](report.pdf). Althou
 | prerequistes.sh      | describes the required Hadoop bash commands to copy the CSV files from local storage to HDFS   |
 | data-cleaning.pig   | displays the Pig operators used to clean the data        |
 | pig-anaylsis.pig   | displays the commands required for the first set of queries on the [lab-sheet](https://github.com/CA4022/Lab3-HivePigMovielens#tasks) |
-| python_udf.py   |  is a user defined function to aid the retrieval of most liked movies in Pig. |
-|  hive-anaylsis.sql  | contains the Hive queries for both sets of queries detailed on the [lab-sheet](https://github.com/CA4022/Lab3-HivePigMovielens#tasks).          |
-| data_visualation.ipynb  | is  a jupyter notebook that creates plots for in-depth analysis.       |
-| data folder   | contains saved Pig relations and Hive tables in TSV format.       |
-| images folder   | contains all the images used in the report.      |
+| python_udf.py   |  is a user defined function to aid the retrieval of most liked movies in Pig |
+|  hive-anaylsis.sql  | contains the Hive queries for both sets of queries detailed on the [lab-sheet](https://github.com/CA4022/Lab3-HivePigMovielens#tasks)       |
+| data_visualation.ipynb  | is  a jupyter notebook that creates plots for in-depth analysis       |
+| data folder   | contains saved Pig relations and Hive tables in TSV format       |
+| images folder   | contains all the images used in the report      |
 
 
 ## Github link
