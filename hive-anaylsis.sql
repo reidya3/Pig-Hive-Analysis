@@ -1,6 +1,6 @@
 -- Note, SET A and SET B denote the required list of queries as part of the Assignment
 -- Create movie_ratings table in hive 
-Create EXTERNAL table movie_ratings(userid INT,
+Create EXTERNAL table movie_ratings_2(userid INT,
                                   rating DOUBLE,
                                   movieId INT,
                                   title STRING,

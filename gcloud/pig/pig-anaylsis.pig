@@ -1,12 +1,10 @@
--- Register the piggybank.jar 
-REGISTER  /home/reidya3/hadoop/pig-0.17.0/contrib/piggybank/java/piggybank.jar;
 -- Define the CSVExcelStorage alias
 DEFINE CSVLoader org.apache.pig.piggybank.storage.CSVExcelStorage('\t', 'NO_MULTILINE', 'UNIX');
 -- Define our created UDF to filter the most liked movies
-REGISTER /home/reidya3/hadoop/pig-0.17.0/python_udf.py using org.apache.pig.scripting.jython.JythonScriptEngine as myfunc;
+REGISTER gs://ca4015-assignment-1/python_udf.py using org.apache.pig.scripting.jython.JythonScriptEngine as myfunc;
 
 -- Load in movie-ratings Pig relation
-movie_ratings_joined = LOAD 'output/movies_and_ratings' USING CSVLoader() as (
+movie_ratings_joined = LOAD 'output/movies_and_ratings'  USING CSVLoader() as (
                                                                             userId:int, 
                                                                             rating:double, 
                                                                             movieId:int, 

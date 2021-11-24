@@ -1,14 +1,12 @@
 -- Register the piggybank.jar 
-REGISTER /home/reidya3/hadoop/pig-0.17.0/contrib/piggybank/java/piggybank.jar;
--- Define two alias of the org.apache.pig.piggybank.storage.CSVExcelStorage UDF
 DEFINE CSVLoader org.apache.pig.piggybank.storage.CSVExcelStorage(',', 'NO_MULTILINE', 'UNIX', 'SKIP_INPUT_HEADER');
 DEFINE CSVStorer org.apache.pig.piggybank.storage.CSVExcelStorage('\t', 'NO_MULTILINE', 'UNIX');
 
 -- load in ratings, tag, movies and links CSV file
-ratings = LOAD 'input/movielens/ratings.csv' USING CSVLoader() AS (userId:int, movieId:int, rating:double, timestamp:int);
-tags = LOAD 'input/movielens/tags.csv' USING CSVLoader() AS (userId:int, movieId:int, tag:chararray, timestamp:int);
-movies = LOAD 'input/movielens/movies.csv' USING CSVLoader() AS (movieId:int, title:chararray, genres:chararray);
-links = LOAD 'input/movielens/links.csv' USING CSVLoader() AS (movieId:int, imdbId:int, tmdbId:int);
+ratings = LOAD 'gs://ca4015-assignment-1/ratings.csv' USING CSVLoader() AS (userId:int, movieId:int, rating:double, timestamp:int);
+tags = LOAD 'gs://ca4015-assignment-1/tags.csv' USING CSVLoader() AS (userId:int, movieId:int, tag:chararray, timestamp:int);
+movies = LOAD 'gs://ca4015-assignment-1/movies.csv' USING CSVLoader() AS (movieId:int, title:chararray, genres:chararray);
+links = LOAD 'gs://ca4015-assignment-1/links.csv' USING CSVLoader() AS (movieId:int, imdbId:int, tmdbId:int);
 
 -- fix incorrect year format,extract year from title and split genres
 movies_incorrect_year_fixed = FOREACH movies GENERATE movieId, REPLACE(title, '(2006–2007)', '(2006)') AS title, genres;
